@@ -23,6 +23,9 @@ MainWindow::MainWindow(QWidget *parent)
     QListWidget *listWidget = new QListWidget();
     QPushButton *button = new QPushButton("Add Task");
     QDateTime dateTime = QDateTime::fromString("1.30.1", "M.d.s");
+    dateTime = QDateTime::fromString("12", "yy");
+
+    QString dateTimeString = dateTime.toString()
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(lineEdit);
@@ -32,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(button, &QPushButton::clicked, [=]() {
         QString task = lineEdit->text();
-        QString Date = lineEditTime->text();
+        lineEditTime->setText(date);
         if (!task.isEmpty()) {
             QCheckBox *checkBox = new QCheckBox(task);
             listWidget->addItem("");
